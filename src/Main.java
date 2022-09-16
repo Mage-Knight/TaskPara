@@ -50,7 +50,7 @@ public class Main {
                 }
 
                 // default case
-                default -> System.out.println("Unknown Size");
+                default -> System.out.println("Unknown Selection");
             }
         }
 
