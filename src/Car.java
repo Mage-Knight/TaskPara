@@ -17,6 +17,10 @@ public class Car {
         this.registrationNumber = registrationNumber;
     }
     public void displayCarInformation() {
-        System.out.println("ID: " + this.id + "\nBrand: " + this.brand + "\nModel: " + this.model + "\nYear of issue: " + this.year + "\nColor: " + this.color + "\nPrice: " + this.price + "$\nRegistration number: " + this.registrationNumber);
+        System.out.println("ID: " + this.id + "\nBrand: "
+                + this.brand + "\nModel: " + this.model
+                + "\nYear of issue: " + this.year + "\nColor: "
+                + this.color + "\nPrice: " + this.price
+                + "$\nRegistration number: " + this.registrationNumber);
     }
 }
