@@ -77,7 +77,7 @@ public class Main {
     static ArrayList<Car> outCarsByBrand(Car[] listOfCars, String brandDesired) {
         ArrayList<Car> targetCars = new ArrayList<>();
         for (Car car : listOfCars) {
-            if (car.brand.equals(brandDesired)) {
+            if (car.getBrand().equals(brandDesired)) {
                 targetCars.add(car);
             }
         }
@@ -88,7 +88,7 @@ public class Main {
         ArrayList<Car> targetCars = new ArrayList<>();
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         for (Car car : listOfCars) {
-            if (car.model.equals(modelDesired) && currentYear - car.year > yearsInput) {
+            if (car.getModel().equals(modelDesired) && currentYear - car.getYear() > yearsInput) {
                 targetCars.add(car);
             }
         }
@@ -99,13 +99,12 @@ public class Main {
         ArrayList<Car> targetCars = new ArrayList<>();
         BigDecimal priceInputBigDecimal = new BigDecimal(priceInput);
         for (Car car : listOfCars) {
-            if (car.year == yearsInput && car.price.compareTo(priceInputBigDecimal) > 0) {
+            if (car.getYear() == yearsInput && car.getPrice().compareTo(priceInputBigDecimal) > 0) {
                 targetCars.add(car);
             }
         }
         return targetCars;
     }
-
 
     static void visualize(ArrayList<Car> listOfCars) {
         System.out.println("_______________LIST OF CARS____________________");

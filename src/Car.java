@@ -1,12 +1,24 @@
 import java.math.BigDecimal;
 public class Car {
-    int id;
-    String brand;
-    String model;
-    int year;
-    String color;
-    BigDecimal price;
-    int registrationNumber;
+    private int id;
+    private String brand;
+    private String model;
+    private int year;
+    private String color;
+    private BigDecimal price;
+    private int registrationNumber;
+    public String getBrand() {
+        return brand;
+    }
+    public String getModel() {
+        return model;
+    }
+    public int getYear() {
+        return year;
+    }
+    public BigDecimal getPrice() {
+        return price;
+    }
     Car(int id, String brand, String model, int year, String color, BigDecimal price, int registrationNumber) {
         this.id = id;
         this.brand = brand;
