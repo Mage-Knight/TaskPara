@@ -10,35 +10,33 @@ public class Main {
         Scanner myObj = new Scanner(System.in);
 
         while (true) {
-            System.out.println("______________LABA 1____________________");
+            System.out.println("______________taskPara____________________");
             System.out.println("0 - stop program");
-            System.out.println("1 - print all");
-            System.out.println("2 - print by brand");
-            System.out.println("3 - print by brand and year");
-            System.out.println("4 - print by year and price");
+            System.out.println("1 - list of all cars");
+            System.out.println("2 - cars by brand");
+            System.out.println("3 - cars by model and usage duration");
+            System.out.println("4 - cars by year and price");
             System.out.println("__________________________________________");
             System.out.print("Select item:");
-            selector = Integer.parseInt(myObj.nextLine());
+            selector = tryParseInt(myObj.nextLine());
             switch (selector) {
-                case 0 -> {
-                    System.exit(0);
-                }
-                case 1 -> {
-                    vizualize(listOfCars);
-                }
+                case 0 -> System.exit(0);
+
+                case 1 -> visualize(listOfCars);
+
                 case 2 -> {
                     System.out.print("Brand:");
                     String brand = myObj.nextLine();
                     ArrayList<Car> selectedCars = outCarsByBrand(listOfCars, brand);
-                    vizualize(selectedCars);
+                    visualize(selectedCars);
                 }
                 case 3 -> {
-                    System.out.print("Brand:");
+                    System.out.print("Model:");
                     String model = myObj.nextLine();
                     System.out.print("Used years:");
                     int years = Integer.parseInt(myObj.nextLine());
                     ArrayList<Car> selectedCars = outCarsByModelAndYear(listOfCars, model, years);
-                    vizualize(selectedCars);
+                    visualize(selectedCars);
                 }
                 case 4 -> {
                     System.out.print("Year:");
@@ -46,10 +44,9 @@ public class Main {
                     System.out.print("Price more then:");
                     String price = myObj.nextLine();
                     ArrayList<Car> selectedCars = outCarsByYearAndPrice(listOfCars, year, price);
-                    vizualize(selectedCars);
+                    visualize(selectedCars);
                 }
 
-                // default case
                 default -> System.out.println("Unknown Selection");
             }
         }
@@ -102,7 +99,7 @@ public class Main {
         ArrayList<Car> targetCars = new ArrayList<>();
         BigDecimal priceInputBigDecimal = new BigDecimal(priceInput);
         for (Car car : listOfCars) {
-            if (car.year == yearsInput && car.price.compareTo(priceInputBigDecimal) > 0){
+            if (car.year == yearsInput && car.price.compareTo(priceInputBigDecimal) > 0) {
                 targetCars.add(car);
             }
         }
@@ -110,7 +107,7 @@ public class Main {
     }
 
 
-    static void vizualize(ArrayList<Car> listOfCars) {
+    static void visualize(ArrayList<Car> listOfCars) {
         System.out.println("_______________LIST OF CARS____________________");
         for (Car car : listOfCars) {
             car.displayCarInformation();
@@ -118,7 +115,7 @@ public class Main {
         }
     }
 
-    static void vizualize(Car[] listOfCars) {
+    static void visualize(Car[] listOfCars) {
         System.out.println("_______________LIST OF CARS___________________");
         for (Car car : listOfCars) {
             car.displayCarInformation();
@@ -126,5 +123,12 @@ public class Main {
         }
     }
 
+    static int tryParseInt(String value) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
 
 }
